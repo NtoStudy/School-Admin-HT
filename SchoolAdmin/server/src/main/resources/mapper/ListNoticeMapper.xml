@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.skyAdmin.mapper.ListNoticeMapper">
+
+    <select id="listNotice" resultType="com.skyAdmin.VO.home.homeNoticeVO">
+        select *
+        from adminsql.notification
+        where status = '已发布'
+    </select>
+
+    <insert id="addNotice">
+        insert into adminsql.notification (title, content, publisher)
+            value (#{title}, #{content}, #{publisher})
+    </insert>
+
+    <delete id="deleteNotice">
+        delete from notification where id = #{id}
+    </delete>
+</mapper>

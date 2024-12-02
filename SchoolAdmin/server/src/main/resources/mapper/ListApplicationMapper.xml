@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.skyAdmin.mapper.ListApplicationMapper">
+    <select id="listApplication" resultType="com.skyAdmin.VO.home.homeApplicationVo">
+        select * from application
+    </select>
+
+    <update id="update">
+        update application
+        set apply_content = #{applyContent},
+            applicant     = #{applicant}
+        where id = #{id}
+    </update>
+
+    <insert id="save">
+        insert into application
+            (apply_content, applicant)
+        values (#{applyContent}, #{applicant})
+    </insert>
+
+    <delete id="deleteApplication">
+        delete from application where id = #{id}
+    </delete>
+
+
+</mapper>
